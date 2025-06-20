@@ -31,7 +31,9 @@
 </div>
 <script>
     function onCaptchaSuccess(token) {
-      window.parent.postMessage(token, "*");
+      if (window.flutter_inappwebview) {
+        window.flutter_inappwebview.callHandler('recaptchaCallback', token);
+      }
     }
 </script>
 </body>
