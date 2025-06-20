@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body, html {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .recaptcha-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="recaptcha-container">
+    <div class="g-recaptcha"
+         data-sitekey="6LdrX2YrAAAAABtDt3ap_1hxxavIfJZpxo4Rno9Y"
+         data-callback="onCaptchaSuccess">
+    </div>
+</div>
+<script>
+    function onCaptchaSuccess(token) {
+      window.parent.postMessage(token, "*");
+    }
+</script>
+</body>
+</html>
